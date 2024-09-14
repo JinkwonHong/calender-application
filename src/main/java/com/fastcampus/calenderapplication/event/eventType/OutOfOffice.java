@@ -13,4 +13,9 @@ public class OutOfOffice extends AbstractEvent {
     public void print() {
         System.out.printf("(외출) %s", getTitle());
     }
+
+    @Override
+    public boolean support(EventType eventType) {
+        return eventType == EventType.OUT_OF_OFFICE;
+    }
 }

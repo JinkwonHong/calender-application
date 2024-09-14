@@ -2,6 +2,7 @@ package com.fastcampus.calenderapplication;
 
 import com.fastcampus.calenderapplication.event.AbstractEvent;
 import com.fastcampus.calenderapplication.event.Event;
+import com.fastcampus.calenderapplication.event.eventType.EventType;
 import com.fastcampus.calenderapplication.event.eventType.Meeting;
 import com.fastcampus.calenderapplication.event.eventType.Todo;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -25,6 +26,8 @@ public class CalenderApplication {
         Todo todo1 = new Todo(1, "Todo 1", ZonedDateTime.now(), ZonedDateTime.now().plusHours(1), "약국 다녀오기");
         list.add(todo1);
 
-        list.forEach(Event::print);
+        list.stream()
+                .filter(each -> each.support(EventType.MEETING))
+                .forEach(Event::print);
     }
 }

@@ -1,5 +1,9 @@
 package com.fastcampus.calenderapplication.event;
 
-public interface Event  {
+import com.fastcampus.calenderapplication.event.eventType.EventType;
+
+public interface Event {
     void print();
+
+    boolean support(EventType eventType);
 }
